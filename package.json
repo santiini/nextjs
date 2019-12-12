@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "start2": "next start -p $PORT",
+    "build2": "next build && PORT=8010"
   },
   "dependencies": {
     "next": "9.1.5",
