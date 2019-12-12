@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
+    "start1": "next start -p 8010",
     "start2": "next start -p $PORT",
     "build2": "next build && PORT=8010"
   },

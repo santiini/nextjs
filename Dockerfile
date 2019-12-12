@@ -11,4 +11,8 @@ RUN npm run build
 
 EXPOSE 8010
 
-CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "start"]
+
+# CMD [ "PORT=8010 npm run start " ]
+
+CMD PORT=8010 npm start
