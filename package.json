@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8010",
+    "dev": "next -p 4000",
     "build": "next build",
     "start": "next start -p $PORT",
     "start1": "next start -p 8010",
@@ -11,8 +11,11 @@
     "build2": "next build && PORT=8010"
   },
   "dependencies": {
+    "@types/node": "^12.12.17",
+    "@types/react": "^16.9.16",
     "next": "9.1.5",
     "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react-dom": "16.12.0",
+    "typescript": "^3.7.3"
   }
 }
