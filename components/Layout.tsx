@@ -11,7 +11,7 @@ const Layout: NextPage<LayoutProps> = ({
   children,
   title = "This is the default title"
 }) => (
-  <div>
+  <div className="app">
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -40,11 +40,52 @@ const Layout: NextPage<LayoutProps> = ({
         </Link>
       </nav>
     </header>
-    {children}
+    <div className="main-content">{children}</div>
     <footer>
       <hr />
       <span>This is a Footer</span>
     </footer>
+    <style jsx>{`
+      :global(body) {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      :global(html) {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      :global(#__next) {
+        height: 100%;
+      }
+
+      .main-content {
+        width: 80%;
+        padding: 0 80px;
+      }
+
+      .app {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .main-content {
+        flex: 1;
+      }
+
+      header,
+      footer {
+        padding: 20px 30px;
+      }
+
+      footer {
+        text-align: center;
+      }
+    `}</style>
   </div>
 );
 
