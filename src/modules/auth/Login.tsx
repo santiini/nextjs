@@ -21,11 +21,11 @@ class Login extends React.Component<LoginProps, LoginState> {
   }
 
   onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
     this.setState(prev => ({
-      ...prev,
       credentials: {
         ...prev.credentials,
-        [e.target.name]: e.target.value
+        [name]: value
       }
     }));
   };
