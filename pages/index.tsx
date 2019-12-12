@@ -4,12 +4,13 @@
 import React from "react";
 import { NextPage } from "next";
 import Link from "next/link";
+import Layout from "../components/Layout";
 
 interface HomeProps {
   userAgent: string;
 }
 const Home: NextPage<HomeProps> = ({ userAgent }) => (
-  <div>
+  <Layout>
     <h2>Hello NextJs, user</h2>
     <div>user agend: {userAgent}</div>
     <p>
@@ -17,7 +18,7 @@ const Home: NextPage<HomeProps> = ({ userAgent }) => (
         <a>About</a>
       </Link>
     </p>
-  </div>
+  </Layout>
 );
 
 // 数据获取

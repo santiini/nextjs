@@ -1,9 +1,10 @@
 import React from "react";
 import { NextPage } from "next";
 import Link from "next/link";
+import Layout from "../components/Layout";
 
 const AboutPage: NextPage = () => (
-  <div>
+  <Layout>
     <h2>Abount</h2>
     <p>this is about page</p>
     <p>
@@ -11,7 +12,7 @@ const AboutPage: NextPage = () => (
         <a>Go Home</a>
       </Link>
     </p>
-  </div>
+  </Layout>
 );
 
 export default AboutPage;

@@ -19,7 +19,7 @@ const Layout: NextPage<LayoutProps> = ({
     </Head>
     <header>
       <nav>
-        <Link href="">
+        <Link href="/">
           <a>Home</a>
         </Link>
         {`  |  `}
@@ -29,6 +29,14 @@ const Layout: NextPage<LayoutProps> = ({
         {`  |  `}
         <Link href="/users">
           <a>Users List</a>
+        </Link>
+        {`  |  `}
+        <Link href="/cars">
+          <a>Cars</a>
+        </Link>
+        {`  |  `}
+        <Link href="/login">
+          <a>Login</a>
         </Link>
       </nav>
     </header>
