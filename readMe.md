@@ -16,7 +16,12 @@ RUN npm run build
 
 EXPOSE 8010
 
-CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "start"]
+
+# CMD [ "PORT=8010 npm run start " ]
+
+CMD PORT=8010 npm start
+
 
 ```
 
@@ -29,5 +34,5 @@ docker build -t next-demo .
 生成容器
 
 ```bash
-docker run -it -d --name next-demo -p 8010:8010 next-demo
+docker run --name next-demo -it -d -p 8010:8010 next-demo
 ```
