@@ -8,7 +8,9 @@
     "start": "next start -p $PORT",
     "start1": "next start -p 8010",
     "start2": "next start -p $PORT",
-    "build2": "next build && PORT=8010"
+    "build2": "next build && PORT=8010",
+    "test1": "jest",
+    "test": "jest --colors --coverage"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
@@ -17,9 +19,18 @@
     "react-dom": "16.12.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.4",
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.12.17",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.12.0",
     "typescript": "^3.7.3"
   }
 }
