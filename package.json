@@ -10,13 +10,18 @@
     "start2": "next start -p $PORT",
     "build2": "next build && PORT=8010",
     "test1": "jest",
-    "test": "jest --colors --coverage"
+    "test": "jest --colors --coverage",
+    "debug1": "node --inspect server.js",
+    "debug": "NODE_OPTIONS=--inspect next -p $PORT",
+    "debug3": "next -p $PORT",
+    "debug4": "node ./node_modules/.bin/next -p $PORT"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.1.5",
     "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react-dom": "16.12.0",
+    "react-markdown": "^4.2.2"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.4",

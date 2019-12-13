@@ -38,6 +38,10 @@ const Layout: NextPage<LayoutProps> = ({
         <Link href="/login">
           <a>Login</a>
         </Link>
+        {`  |  `}
+        <Link href="/post">
+          <a>Post Blog</a>
+        </Link>
       </nav>
     </header>
     <div className="main-content">{children}</div>
