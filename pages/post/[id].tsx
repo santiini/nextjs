@@ -16,15 +16,22 @@ const initialSource = `
 And here's the content.
 `;
 
-interface PostDetailProps {}
-const PostDetail: NextPage<PostDetailProps> = () => {
+interface PostDetailProps {
+  data: string;
+  md: string;
+}
+const PostDetail: NextPage<PostDetailProps> = props => {
   const router = useRouter();
   return (
     <Layout>
       <Fragment>
         <h2>{router.query.id}</h2>
+        <div>{props.data}</div>
         <div className="markdown">
           <Markdown source={initialSource} />
+        </div>
+        <div className="markdown">
+          <Markdown source={props.md} />
         </div>
         <style jsx global>{`
           .markdown {
@@ -57,11 +64,13 @@ PostDetail.getInitialProps = async ({ query }) => {
       `http://localhost:4000/api/post/${query.id}`
     ).then(res => res.json());
     return {
-      data: post.data
+      data: post.data,
+      md: post.md
     };
   } catch (err) {
     return {
-      data: ""
+      data: "",
+      md: ""
     };
   }
 };

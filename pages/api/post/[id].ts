@@ -1,19 +1,25 @@
 import { NextApiRequest, NextApiResponse } from "next";
-// import fs from "fs";
-// import path from "path";
+import fs from "fs";
+import path from "path";
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   try {
     console.log(req.query.id);
 
-    // const text = fs.readFileSync(path.join(__dirname, "./post1.markdown"), {
-    //   encoding: "utf-8"
-    // });
-    // const text = fs.readFileSync("/test.txt", "utf8");
-    console.log("-----------markdown---start");
-    console.log("-----------markdown---end");
+    const text = fs.readFileSync(
+      path.join(process.env.PROJECT_DIRNAME || "", "pages/api/post/test.txt"),
+      "utf8"
+    );
 
-    res.status(200).json({ data: "testTxt" });
+    const md1 = fs.readFileSync(
+      path.join(
+        process.env.PROJECT_DIRNAME || "",
+        "pages/api/post/post1.markdown"
+      ),
+      "utf8"
+    );
+
+    res.status(200).json({ data: text, md: md1 });
   } catch (err) {
     console.log(err);
 

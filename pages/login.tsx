@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 const LoginPage = () => (
   <Layout>
     <Login />
+    <img src="/meimei.jpeg" />
   </Layout>
 );
 
