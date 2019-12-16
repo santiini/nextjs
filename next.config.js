@@ -18,12 +18,25 @@
  *
  * defaultConfig： webpack 配置
  */
-module.exports = (phase, { defaultConfig }) => {
-  // https://github.com/zeit/
-  return {
-    env: {
-      // 替代项目中的 __dirname, 解决 Nextjs 中 __dirname 不正确的问题, __dirname 总是等于 /
-      PROJECT_DIRNAME: __dirname
-    }
-  };
-};
+// module.exports = (phase, { defaultConfig }) => {
+//   // https://github.com/zeit/
+//   return {
+//     env: {
+//       // 替代项目中的 __dirname, 解决 Nextjs 中 __dirname 不正确的问题, __dirname 总是等于 /
+//       PROJECT_DIRNAME: __dirname
+//     }
+//   };
+// };
+
+/**
+ * @next/bundle-analyzer 等 @next 插件使用
+ */
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true"
+});
+
+module.exports = withBundleAnalyzer({
+  env: {
+    PROJECT_DIRNAME: __dirname
+  }
+});
