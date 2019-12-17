@@ -38,5 +38,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 module.exports = withBundleAnalyzer({
   env: {
     PROJECT_DIRNAME: __dirname
-  }
+  },
+  target: "serverless"
 });
