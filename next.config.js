@@ -29,15 +29,76 @@
 // };
 
 /**
+ * 形式3
  * @next/bundle-analyzer 等 @next 插件使用
  */
+// const withBundleAnalyzer = require("@next/bundle-analyzer")({
+//   enabled: process.env.ANALYZE === "true"
+// });
+
+// module.exports = withBundleAnalyzer({
+//   env: {
+//     PROJECT_DIRNAME: __dirname
+//   },
+//   target: "serverless"
+// });
+
+/**
+ * 形式4
+ * @zeit/next-less 使用 less
+ */
+const lessToJS = require("less-vars-to-js");
+const fs = require("fs");
+const path = require("path");
+
+// less to js
+const themeVariables = lessToJS(
+  fs.readFileSync(path.resolve(__dirname, "./assets/antd-custom.less"), "utf8")
+);
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true"
 });
+const withLess = require("@zeit/next-less");
 
-module.exports = withBundleAnalyzer({
-  env: {
-    PROJECT_DIRNAME: __dirname
-  },
-  target: "serverless"
-});
+module.exports = withBundleAnalyzer(
+  withLess({
+    // 环境变量
+    env: {
+      PROJECT_DIRNAME: __dirname
+    },
+    // 使用 serverless 页面
+    target: "serverless",
+    // less-loader, css-loader, postcss-loader
+    lessLoaderOptions: {
+      javascriptEnabled: true,
+      modifyVars: themeVariables
+    },
+    // webpack
+    webpack: (config, { isServer }) => {
+      // isServer 处理 antd
+      if (isServer) {
+        const antStyles = /antd\/.*?\/style.*?/;
+        const origExternals = [...config.externals];
+
+        config.externals = [
+          (context, request, callback) => {
+            if (request.match(antStyles)) return callback();
+            if (typeof origExternals[0] === "function") {
+              origExternals[0](context, request, callback);
+            } else {
+              callback();
+            }
+          },
+          ...(typeof origExternals[0] === "function" ? [] : origExternals)
+        ];
+
+        config.module.rules.unshift({
+          test: antStyles,
+          use: "null-loader"
+        });
+      }
+      return config;
+    }
+  })
+);

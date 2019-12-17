@@ -5,6 +5,7 @@ import React from "react";
 import { NextPage } from "next";
 import Link from "next/link";
 import Layout from "../components/Layout";
+import "./index.less";
 
 interface HomeProps {
   userAgent: string;

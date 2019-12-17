@@ -1,7 +1,9 @@
 import React from "react";
 import { NextPage } from "next";
-import Layout from "../components/Layout";
+import { Button } from "antd";
 import Link from "next/link";
+import Layout from "../components/Layout";
+import "./blog.less";
 
 interface BlogProps {}
 const Blog: NextPage<BlogProps> = () => {
@@ -19,6 +21,10 @@ const Blog: NextPage<BlogProps> = () => {
       <Link href="/blog/try">
         <a>blog-try</a>
       </Link>
+      <div className="demo1">12222222222222</div>
+      <div>
+        <Button type="primary">Test Button</Button>
+      </div>
     </Layout>
   );
 };
