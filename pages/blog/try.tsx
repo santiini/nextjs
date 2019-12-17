@@ -7,12 +7,6 @@ export default withPost({
 
 add following content in a file
 
-~~~~js
-export default () => (
-  <div>
-    <p>Learn Next.js!</p>
-  </div>
-)
-~~~~
+This is a sample demo
   `
 });

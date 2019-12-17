@@ -15,6 +15,10 @@ const Blog: NextPage<BlogProps> = () => {
       <Link href="/blog/learn">
         <a>blog-learn</a>
       </Link>
+      <br />
+      <Link href="/blog/try">
+        <a>blog-try</a>
+      </Link>
     </Layout>
   );
 };

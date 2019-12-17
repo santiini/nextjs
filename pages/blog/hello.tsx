@@ -7,12 +7,12 @@ export default withPost({
 
 add following content in a file
 
-~~~js
+~~~~js
 export default () => (
   <div>
     <p>Next.js is great!</p>
   </div>
 )
-~~~
+~~~~
   `
 });
