@@ -17,7 +17,10 @@
     "debug4": "node ./node_modules/.bin/next -p $PORT",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "custom-dev": "node server.js",
+    "custom-build": "next build",
+    "custom-start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^9.1.5",

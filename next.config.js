@@ -63,6 +63,9 @@ const withLess = require("@zeit/next-less");
 
 module.exports = withBundleAnalyzer(
   withLess({
+    // 禁止 /pages 下的文件作为路由，一般和自定义的 server.js 配合使用
+    // tips: 1. 只适用于 ssr 路由  2. client 路由需要配合 popstate 拦截处理
+    useFileSystemPublicRoutes: false, //
     // 环境变量
     env: {
       PROJECT_DIRNAME: __dirname
