@@ -55,6 +55,10 @@ const Layout: NextPage<LayoutProps> = ({
         <Link href="/shallowRouting">
           <a>shallowRouting</a>
         </Link>
+        {`  |  `}
+        <Link href="/dynamic">
+          <a>hello</a>
+        </Link>
       </nav>
     </header>
     <div className="main-content">{children}</div>
