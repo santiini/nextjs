@@ -2,6 +2,7 @@ import React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import "./layout.less";
 
 interface LayoutProps {
   title?: string;
@@ -45,6 +46,14 @@ const Layout: NextPage<LayoutProps> = ({
         {`  |  `}
         <Link href="/blog">
           <a>Blog</a>
+        </Link>
+        {`  |  `}
+        <Link href="/product">
+          <a>product</a>
+        </Link>
+        {`  |  `}
+        <Link href="/shallowRouting">
+          <a>shallowRouting</a>
         </Link>
       </nav>
     </header>

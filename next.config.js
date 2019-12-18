@@ -98,6 +98,12 @@ module.exports = withBundleAnalyzer(
           use: "null-loader"
         });
       }
+
+      // alias 别名配置
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        components: path.resolve(__dirname, "./components")
+      };
       return config;
     }
   })
